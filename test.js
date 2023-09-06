@@ -19,7 +19,7 @@ function exchange(sourceCurrency, amount, targetCurrency, pools) {
         const nextRate = rate * (amountB / amountA);
         const nextPath = [...path, nextCurrency];
 
-        // Kiểm tra tránh lặp vô hạn
+        // Check to avoid infinite loops
         if (!path.includes(nextCurrency)) {
           findPaths(nextCurrency, nextAmount, nextPath, nextRate);
         }
